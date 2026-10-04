@@ -1,0 +1,2404 @@
+﻿
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\app\about\page.tsx ---
+
+import AboutHero from "@/components/about/AboutHero";
+import CareerTimeline from "@/components/about/CareerTimeline";
+import Education from "@/components/about/Education";
+import FellowshipsAwards from "@/components/about/FellowshipsAwards";
+import TeachingMentoring from "@/components/about/TeachingMentoring";
+import Conferences from "@/components/about/Conferences";
+import ContactCTA from "@/components/home/ContactCTA";
+
+export default function AboutPage() {
+  return (
+    <main className="flex flex-col w-full bg-[#A6432F]">
+      <AboutHero />
+      <CareerTimeline />
+      <Education />
+      <FellowshipsAwards />
+      <TeachingMentoring />
+      <Conferences />
+      <ContactCTA />
+    </main>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\app\contact\page.tsx ---
+
+import ContactHero from "@/components/contact/ContactHero";
+import ContactInformation from "@/components/contact/ContactInformation";
+import ProfessionalProfiles from "@/components/contact/ProfessionalProfiles";
+
+export default function ContactPage() {
+  return (
+    <main className="flex flex-col w-full bg-[#A6432F] min-h-screen">
+      <ContactHero />
+      <ContactInformation />
+      <ProfessionalProfiles />
+    </main>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\app\publications\page.tsx ---
+
+import PublicationHero from "@/components/publications/PublicationHero";
+import PublicationHighlights from "@/components/publications/PublicationHighlights";
+import FullPublicationsList from "@/components/publications/FullPublicationsList";
+import BookChapters from "@/components/publications/BookChapters";
+import GoogleScholarLink from "@/components/publications/GoogleScholarLink";
+import ContactCTA from "@/components/home/ContactCTA";
+
+export default function PublicationsPage() {
+  return (
+    <main className="flex flex-col w-full bg-[#A6432F]">
+      <PublicationHero />
+      <PublicationHighlights />
+      <FullPublicationsList />
+      <BookChapters />
+      <GoogleScholarLink />
+      <ContactCTA />
+    </main>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\app\research\page.tsx ---
+
+import ResearchHero from "@/components/research/ResearchHero";
+import ResearchOverview from "@/components/research/ResearchOverview";
+import ResearchFocus from "@/components/research/ResearchFocus";
+import CardiovascularResearch from "@/components/research/CardiovascularResearch";
+import RenalResearch from "@/components/research/RenalResearch";
+import MitochondrialBiology from "@/components/research/MitochondrialBiology";
+import BiomedicalDevice from "@/components/research/BiomedicalDevice";
+import FeaturedProjects from "@/components/research/FeaturedProjects";
+import ResearchExpertise from "@/components/research/ResearchExpertise";
+import KeyNumbers from "@/components/research/KeyNumbers";
+import ContactCTA from "@/components/home/ContactCTA";
+
+export default function ResearchPage() {
+  return (
+    <main className="flex flex-col w-full bg-[#A6432F]">
+      <ResearchHero />
+      <ResearchOverview />
+      <ResearchFocus />
+      <CardiovascularResearch />
+      <RenalResearch />
+      <MitochondrialBiology />
+      <BiomedicalDevice />
+      <FeaturedProjects />
+      <ResearchExpertise />
+      <KeyNumbers />
+      <ContactCTA />
+    </main>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\app\technologies\page.tsx ---
+
+import InnovationHero from "@/components/innovations/InnovationHero";
+import CardiacGraftTransportation from "@/components/innovations/CardiacGraftTransportation";
+import ViabilityMonitoring from "@/components/innovations/ViabilityMonitoring";
+import ResearchToPrototype from "@/components/innovations/ResearchToPrototype";
+import Patents from "@/components/innovations/Patents";
+import ContactCTA from "@/components/home/ContactCTA";
+
+export default function InnovationsPage() {
+  return (
+    <main className="flex flex-col w-full bg-[#A6432F]">
+      <InnovationHero />
+      <CardiacGraftTransportation />
+      <ViabilityMonitoring />
+      <ResearchToPrototype />
+      <Patents />
+      <ContactCTA />
+    </main>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\app\globals.css ---
+
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), sans-serif;
+}
+
+/* Subtle visual separation for all page sections */
+main > section:not(:first-child) {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 -10px 30px -10px rgba(0, 0, 0, 0.2);
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\app\layout.tsx ---
+
+import type { Metadata } from "next";
+import { Outfit } from "next/font/google";
+import "./globals.css";
+
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Dr. Priyanka N P",
+  description: "Biomedical Innovation & Research Portfolio",
+};
+
+import Navbar from "@/components/layout/Navbar";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html
+      lang="en"
+      className={`${outfit.variable} antialiased`}
+    >
+      <body className="flex flex-col">
+        {children}
+        <Navbar />
+      </body>
+    </html>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\app\page.tsx ---
+
+import HeroSection from "@/components/hero/HeroSection";
+import ResearchFocus from "@/components/home/ResearchFocus";
+import ResearchAtAGlance from "@/components/home/ResearchAtAGlance";
+import FeaturedResearch from "@/components/home/FeaturedResearch";
+import CurrentWork from "@/components/home/CurrentWork";
+import SelectedPublications from "@/components/home/SelectedPublications";
+import AboutPreview from "@/components/home/AboutPreview";
+import ContactCTA from "@/components/home/ContactCTA";
+import ScrollDNA from "@/components/home/ScrollDNA";
+
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-[#A6432F] flex flex-col relative">
+      <ScrollDNA />
+      <HeroSection />
+      <ResearchAtAGlance />
+      <ResearchFocus />
+      <FeaturedResearch />
+      <CurrentWork />
+      <SelectedPublications />
+      <AboutPreview />
+      <ContactCTA />
+    </main>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\about\AboutHero.tsx ---
+
+import Image from "next/image";
+
+export default function AboutHero() {
+  return (
+    <section className="relative w-full pt-28 pb-12 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center overflow-hidden">
+      {/* Elegant Background Design */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-[-20%] left-[-10%] w-[40%] h-[40%] bg-[#A6432F]/5 blur-[100px] rounded-full"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-black/20 blur-[100px] rounded-full"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
+      </div>
+
+      <div className="relative z-10 max-w-[1200px] w-full flex flex-col md:flex-row gap-16 items-center mt-8">
+        
+        <div className="md:w-1/2 flex justify-center md:justify-start">
+          <div className="relative w-full max-w-sm aspect-[4/5] rounded-[3rem] overflow-hidden border-8 border-[#F3EDE0] shadow-2xl">
+            <Image src="/potrait.jpeg" alt="Dr. Priyanka N P" fill className="object-cover" priority />
+          </div>
+        </div>
+
+        <div className="md:w-1/2 flex flex-col">
+          <span className="text-sm font-semibold tracking-widest uppercase text-[#F3EDE0] mb-4">Professional Biography</span>
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-8">
+            Dr. Priyanka <span className="font-light italic text-[#EDE6D8]">N P</span>
+          </h1>
+          <div className="space-y-6 text-[#EDE6D8] leading-relaxed text-lg">
+            <p>
+              A dedicated and resourceful researcher with more than 8+ years of experience in an institutional research lab specializing in conducting animal studies in the area of cardiovascular, renal, metabolic diseases and pharmacokinetics.
+            </p>
+            <p>
+              Currently, a lead research scientist in the cardiovascular division of the Healthcare Technology Innovation Centre (HTIC) at IITM Research Park â€“ a Research & Development Centre of IIT Madras.
+            </p>
+            <p>
+              Possesses strong management expertise evidenced by successful management of multiple pre-clinical and clinical projects from Government and private agencies, guiding all functions relating to research studies, analysis and reporting.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\about\CareerTimeline.tsx ---
+
+"use client";
+
+import { motion, useScroll } from "framer-motion";
+import { useRef } from "react";
+
+export default function CareerTimeline() {
+  const experiences = [
+    {
+      year: "2024-Present",
+      role: "Lead Research Scientist - Cardiovascular Device Development Team",
+      org: "Health Technology Innovation Centre-IITM, Chennai, India",
+      desc: "Playing a key role in the development of innovative transportation systems for cardiac graft transplantation with continuous perfusion, and developing continuous viability monitoring systems."
+    },
+    {
+      year: "2017-2024",
+      role: "CSIR- Research Fellow",
+      org: "SASTRA Deemed University, Thanjavur, India",
+      desc: "Explored molecular insights of mitochondrial changes during myocardial IR injury. Handled collaborative projects involving novel mitochondria-based circulatory markers and nano-cardio medicine. Mentored 50+ students."
+    },
+    {
+      year: "2015-2017",
+      role: "Junior Lecturer",
+      org: "Research World, Ernakulam, Kerala, India",
+      desc: "Prepared engaging lectures on Developmental Biology, Genetics, Evolution and Plant physiology. Designed and developed course materials from learning objectives."
+    }
+  ];
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1000px] w-full">
+        <h2 className="text-4xl font-semibold tracking-tight mb-16 text-center border-b border-[#E9C7C2]/30 pb-8">
+          Career <span className="font-light italic text-[#EDE6D8]">Timeline</span>
+        </h2>
+
+        <div ref={containerRef} className="flex flex-col gap-12 relative pb-4">
+          {/* Faint Background Track Line */}
+          <div className="absolute top-0 bottom-0 w-0.5 bg-[#e8d5d5] left-0 sm:left-[120px] md:left-1/2 -translate-x-1/2 z-0"></div>
+          
+          {/* Animated Maroon Fill Line */}
+          <motion.div 
+            className="absolute top-0 bottom-0 w-0.5 bg-[#F3EDE0] left-0 sm:left-[120px] md:left-1/2 -translate-x-1/2 z-0 origin-top"
+            style={{ scaleY: scrollYProgress }}
+          ></motion.div>
+
+          {experiences.map((exp, idx) => (
+            <motion.div 
+              key={idx} 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "0px 0px -50% 0px" }}
+              transition={{ duration: 0.6 }}
+              className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group z-10"
+            >
+              
+              {/* Timeline Dot */}
+              <div className="flex items-center justify-center w-8 h-8 rounded-full border-4 border-[#faf7f6] bg-[#F3EDE0] absolute left-0 sm:left-[120px] md:left-1/2 -translate-x-1/2 shadow z-20 transition-transform duration-300 group-hover:scale-125"></div>
+              
+              {/* Timeline Card */}
+              <div className="w-[calc(100%-3rem)] sm:w-[calc(100%-140px)] md:w-[calc(50%-2.5rem)] bg-[#A6432F]/70 backdrop-blur-sm p-6 rounded-2xl border border-[#E9C7C2]/30 ml-auto sm:ml-auto md:ml-0 md:odd:ml-auto hover:shadow-lg transition-shadow">
+                <span className="text-[#F3EDE0] font-bold text-sm tracking-widest block mb-2">{exp.year}</span>
+                <h4 className="text-xl font-bold mb-1">{exp.role}</h4>
+                <span className="text-[#EDE6D8] text-sm block mb-4 italic">{exp.org}</span>
+                <p className="text-[#EDE6D8] text-sm leading-relaxed">{exp.desc}</p>
+              </div>
+
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\about\Conferences.tsx ---
+
+import { Globe2 } from "lucide-react";
+
+export default function Conferences() {
+  const conferences = [
+    {
+      role: "Poster & Oral Presentation",
+      event: "ESOT-2025",
+      org: "European Society of Organ Transplantation (ESOT)",
+      date: "June 29 - July 2",
+      loc: "ExCeL, London, United Kingdom"
+    },
+    {
+      role: "Oral Presentation",
+      event: "ICBB 2022",
+      org: "International Conference of Bioscience and Bioinformatics (E-Palli International Conferences)",
+      date: "Dec 23, 2022",
+      loc: "Impiana KLCC, Kuala Lumpur, Malaysia"
+    }
+  ];
+
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1000px] w-full text-center">
+        <div className="flex items-center justify-center gap-4 mb-16">
+          <Globe2 className="w-8 h-8 text-[#F3EDE0]" />
+          <h2 className="text-4xl font-semibold tracking-tight">Conferences</h2>
+        </div>
+
+        <div className="flex flex-col gap-8 text-left">
+          {conferences.map((conf, idx) => (
+            <div key={idx} className="bg-[#A6432F]/70 p-8 rounded-3xl border border-[#E9C7C2]/30 flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div>
+                <span className="text-[#F3EDE0] font-bold text-xs tracking-widest uppercase block mb-2">{conf.role}</span>
+                <h3 className="text-2xl font-bold mb-2">{conf.event}</h3>
+                <p className="text-[#EDE6D8] font-medium mb-1">{conf.org}</p>
+                <p className="text-sm text-[#9b9b9b]">{conf.date} &mdash; {conf.loc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\about\Education.tsx ---
+
+import { GraduationCap } from "lucide-react";
+
+export default function Education() {
+  const education = [
+    {
+      year: "2017-2024",
+      degree: "Doctor of Philosophy (Biochemistry and Biotechnology)",
+      inst: "SASTRA Deemed University, Thanjavur, India",
+      details: "Successfully defended on 10/07/2024. Doctoral research focused on the Mitochondrial Role in the Pathology of Renal Ischemia Reperfusion Injury."
+    },
+    {
+      year: "2013-2015",
+      degree: "Master of Science (Zoology)",
+      inst: "Nirmala College, Kerala, India (Affiliated to Mahatma Gandhi University)",
+      details: "CGPA: 8.40. First class with distinction."
+    },
+    {
+      year: "2010-2013",
+      degree: "Bachelor of Science (Zoology)",
+      inst: "Vimala College, Kerala, India (Affiliated to University of Calicut)",
+      details: "CGPA: 9.40. First class with distinction."
+    }
+  ];
+
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1400px] w-full flex flex-col md:flex-row gap-16">
+        
+        <div className="md:w-1/3">
+          <div className="sticky top-24">
+            <div className="flex items-center gap-4 mb-6">
+              <GraduationCap className="w-8 h-8 text-[#F3EDE0]" />
+              <h2 className="text-4xl font-semibold tracking-tight">Education</h2>
+            </div>
+            <p className="text-[#EDE6D8] leading-relaxed mb-8">
+              A solid academic foundation built across premier institutions in India, culminating in a Ph.D. in Biochemistry and Biotechnology.
+            </p>
+          </div>
+        </div>
+
+        <div className="md:w-2/3 flex flex-col gap-6">
+          {education.map((edu, idx) => (
+            <div key={idx} className="bg-[#A6432F] p-8 rounded-[2rem] border border-[#E9C7C2]/30 shadow-lg">
+              <span className="text-xs font-bold tracking-widest text-[#F3EDE0] uppercase block mb-3">{edu.year}</span>
+              <h3 className="text-2xl font-bold mb-2">{edu.degree}</h3>
+              <p className="text-[#EDE6D8] font-medium mb-4">{edu.inst}</p>
+              <p className="text-sm text-[#EDE6D8] leading-relaxed">{edu.details}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\about\FellowshipsAwards.tsx ---
+
+import { Award } from "lucide-react";
+
+export default function FellowshipsAwards() {
+  const awards = [
+    {
+      title: "CSIR SRF Fellowship",
+      year: "2019-2022",
+      desc: "Awarded the Council of Scientific and Industrial Research Senior Research Fellowship."
+    },
+    {
+      title: "CSIR JRF Fellowship",
+      year: "2017-2019",
+      desc: "Awarded the Council of Scientific and Industrial Research Junior Research Fellowship."
+    },
+    {
+      title: "GATE Qualified",
+      year: "March 2016",
+      desc: "Successfully cleared the Graduate Aptitude Test in Engineering."
+    },
+    {
+      title: "Academic Distinctions",
+      year: "2010-2015",
+      desc: "Secured First Class with Distinction at both Undergraduate (BSc) and Postgraduate (MSc) level examinations."
+    }
+  ];
+
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1400px] w-full">
+        <div className="flex items-center justify-center gap-4 mb-16">
+          <Award className="w-8 h-8 text-[#F3EDE0]" />
+          <h2 className="text-4xl font-semibold tracking-tight text-center">Fellowships & Awards</h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {awards.map((award, idx) => (
+            <div key={idx} className="bg-[#A6432F]/70 backdrop-blur-sm p-8 rounded-3xl border border-[#E9C7C2]/30 text-center hover:-translate-y-2 transition-transform duration-300">
+              <span className="text-[#F3EDE0] font-bold text-sm tracking-widest block mb-4">{award.year}</span>
+              <h4 className="text-xl font-bold mb-4">{award.title}</h4>
+              <p className="text-[#EDE6D8] text-sm leading-relaxed">{award.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\about\TeachingMentoring.tsx ---
+
+import { Users } from "lucide-react";
+
+export default function TeachingMentoring() {
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1400px] w-full flex flex-col md:flex-row gap-16 items-center">
+        
+        <div className="md:w-1/2 order-2 md:order-1">
+          <div className="bg-[#A6432F] p-8 rounded-[3rem] border border-[#E9C7C2]/30 shadow-2xl relative overflow-hidden">
+            <div className="absolute -right-10 -bottom-10 opacity-10">
+              <Users className="w-64 h-64" />
+            </div>
+            <div className="relative z-10">
+              <ul className="space-y-6">
+                <li className="flex gap-4">
+                  <div className="w-2 h-2 rounded-full bg-[#F3EDE0] mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Student Mentorship</h4>
+                    <p className="text-sm text-[#EDE6D8] leading-relaxed">Mentored more than 50 graduate and undergraduate students with their academic project requirements.</p>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <div className="w-2 h-2 rounded-full bg-[#F3EDE0] mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Workshop Facilitation</h4>
+                    <p className="text-sm text-[#EDE6D8] leading-relaxed">Conducted national hands-on training workshops and annual internal workshops on Experimental Cardiology, Mammalian cell culture, and cell biology techniques.</p>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <div className="w-2 h-2 rounded-full bg-[#F3EDE0] mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Curriculum Delivery</h4>
+                    <p className="text-sm text-[#EDE6D8] leading-relaxed">Prepared engaging lectures on Developmental Biology, Genetics, Evolution, and Plant Physiology. Designed course materials, administered examinations, and evaluated student performances.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="md:w-1/2 order-1 md:order-2">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
+            Teaching & <span className="font-light italic text-[#EDE6D8]">Mentoring</span>
+          </h2>
+          <p className="text-lg text-[#EDE6D8] leading-relaxed mb-6">
+            Beyond the bench, I am deeply committed to cultivating the next generation of scientific minds. My approach to teaching blends rigorous theoretical understanding with practical, hands-on laboratory experience.
+          </p>
+          <p className="text-sm text-[#EDE6D8] leading-relaxed">
+            Whether serving as a Teaching Assistant supporting practical classes in Biochemistry and Immunology, or operating as a Junior Lecturer developing comprehensive course materials, communication and constructive feedback remain the cornerstones of my mentorship philosophy.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\contact\ContactHero.tsx ---
+
+export default function ContactHero() {
+  return (
+    <section className="relative w-full pt-28 pb-12 px-8 flex flex-col items-center justify-center bg-[#A6432F] text-[#F3EDE0] text-center overflow-hidden">
+      {/* Elegant Background Design */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-[-20%] left-[-10%] w-[40%] h-[40%] bg-[#A6432F]/5 blur-[100px] rounded-full"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-black/20 blur-[100px] rounded-full"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
+      </div>
+
+      <div className="relative z-10 max-w-[800px] w-full mt-8">
+        <span className="text-sm font-semibold tracking-widest uppercase text-[#F3EDE0] mb-6 block">Get in Touch</span>
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+          Professional <span className="font-light italic text-[#EDE6D8]">Enquiries</span>
+        </h1>
+        <p className="text-xl text-[#EDE6D8] leading-relaxed mx-auto mb-8">
+          I am always open to discussing research collaborations, consulting opportunities, speaking engagements, and biomedical innovation projects.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\contact\ContactInformation.tsx ---
+
+import { Phone, Mail, MapPin } from "lucide-react";
+
+export default function ContactInformation() {
+  return (
+    <section className="w-full py-20 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1200px] w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <a href="mailto:priyanka.prem201@gmail.com" className="bg-[#A6432F]/70 backdrop-blur-sm p-10 rounded-[2.5rem] border border-[#E9C7C2]/30 flex flex-col items-center text-center hover:bg-[#A6432F]/70 transition-colors group">
+          <div className="w-16 h-16 rounded-full bg-[#F3EDE0]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <Mail className="w-8 h-8 text-[#F3EDE0]" />
+          </div>
+          <h3 className="text-xl font-bold mb-2">Email Address</h3>
+          <p className="text-[#EDE6D8] text-sm">priyanka.prem201@gmail.com</p>
+        </a>
+
+        <a href="tel:+919567589584" className="bg-[#A6432F]/70 backdrop-blur-sm p-10 rounded-[2.5rem] border border-[#E9C7C2]/30 flex flex-col items-center text-center hover:bg-[#A6432F]/70 transition-colors group">
+          <div className="w-16 h-16 rounded-full bg-[#F3EDE0]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <Phone className="w-8 h-8 text-[#F3EDE0]" />
+          </div>
+          <h3 className="text-xl font-bold mb-2">Phone Number</h3>
+          <p className="text-[#EDE6D8] text-sm">+91-9567589584</p>
+        </a>
+
+        <div className="bg-[#A6432F]/70 backdrop-blur-sm p-10 rounded-[2.5rem] border border-[#E9C7C2]/30 flex flex-col items-center text-center">
+          <div className="w-16 h-16 rounded-full bg-[#F3EDE0]/10 flex items-center justify-center mb-6">
+            <MapPin className="w-8 h-8 text-[#F3EDE0]" />
+          </div>
+          <h3 className="text-xl font-bold mb-2">Current Location</h3>
+          <p className="text-[#EDE6D8] text-sm leading-relaxed">
+            Health Technology Innovation Centre-IITM<br />
+            Chennai, Tamil Nadu, India
+          </p>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\contact\ProfessionalProfiles.tsx ---
+
+export default function ProfessionalProfiles() {
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[800px] w-full bg-[#A6432F] p-12 rounded-[3rem] border border-[#E9C7C2]/30 text-center shadow-2xl">
+        <h2 className="text-3xl font-semibold mb-6">Connect Online</h2>
+        <p className="text-[#EDE6D8] mb-10 max-w-lg mx-auto leading-relaxed">
+          Follow my research publications, citation metrics, and professional updates across academic and professional networks.
+        </p>
+        <div className="flex flex-col sm:flex-row justify-center gap-6">
+          <a 
+            href="https://scholar.google.com/citations?user=Qk19AYEAAAAJ&hl=en&oi=ao" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#A6432F] text-[#F3EDE0] font-bold text-sm hover:scale-105 transition-transform"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8.956 8.956 0 0 1 12 9a8.956 8.956 0 0 1 7.162 4.44L24 9.5z"/></svg>
+            Google Scholar
+          </a>
+          <a 
+            href="#" 
+            className="flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#A6432F]/70 backdrop-blur-md border border-[#E9C7C2]/30 text-[#F3EDE0] font-bold text-sm hover:bg-[#A6432F]/70 transition-colors"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            LinkedIn Profile
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\hero\HeroSection.tsx ---
+
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Microscope, FileText, ShieldCheck } from "lucide-react";
+
+export default function HeroSection() {
+  return (
+    <section className="relative w-full h-[100dvh] bg-[#A6432F] overflow-hidden flex flex-col font-sans text-[#F3EDE0]">
+      
+      {/* Background Elements */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Faint Grid */}
+        <div className="absolute inset-0 bg-[radial-gradient(#7a122a_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+        
+        {/* Large Heart / Molecular abstract placeholders */}
+        <div className="absolute top-[10%] right-[30%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(243,237,224,0.03)_0%,transparent_70%)] rounded-full blur-3xl"></div>
+        <div className="absolute top-[20%] left-[20%] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(243,237,224,0.02)_0%,transparent_70%)] rounded-full blur-2xl"></div>
+
+        {/* Prominent ECG Line */}
+        <svg className="absolute top-1/2 left-0 w-full h-[300px] -translate-y-1/2 opacity-40" preserveAspectRatio="none" viewBox="0 0 1440 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 150 H 350 L 365 120 L 380 180 L 400 60 L 420 220 L 440 130 L 450 150 H 950 L 965 120 L 980 180 L 1000 60 L 1020 220 L 1040 130 L 1050 150 H 1440" stroke="#F3EDE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+
+      {/* Top Header Row (Logo) */}
+      <div className="relative z-30 flex justify-between items-start w-full max-w-[1440px] mx-auto px-12 xl:px-16 pt-8 xl:pt-10 shrink-0">
+        <div className="flex flex-col items-start">
+          <h1 className="text-[18px] xl:text-[22px] font-bold text-[#F3EDE0] tracking-wide mb-1">DR. PRIYANKA NP</h1>
+          <p className="text-[#EDE6D8] text-[11px] xl:text-[12px] font-medium mb-2 xl:mb-3">Lead Research Scientist</p>
+          <div className="w-12 h-[2px] bg-[#F3EDE0]"></div>
+        </div>
+      </div>
+
+      {/* Main Content Area */}
+      <div className="relative z-20 flex-1 flex w-full max-w-[1440px] mx-auto px-12 xl:px-16 min-h-0">
+        
+        {/* Left Column (Text & Stats) */}
+        <div className="flex flex-col w-[45%] h-full pb-16 xl:pb-24 pt-6 xl:pt-10 relative z-20">
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col"
+          >
+            <div className="flex items-center gap-3 mb-4 xl:mb-6">
+              <p className="text-[#F3EDE0] text-[9px] xl:text-[10px] font-bold tracking-[0.15em]">CARDIOVASCULAR RESEARCH</p>
+              <div className="w-1 h-1 rounded-full bg-[#F3EDE0]"></div>
+              <p className="text-[#F3EDE0] text-[9px] xl:text-[10px] font-bold tracking-[0.15em]">BIOMEDICAL INNOVATION</p>
+            </div>
+            
+            <h2 className="text-[3.2rem] xl:text-[4rem] 2xl:text-[4.5rem] leading-[1.05] font-bold text-[#F3EDE0] mb-2 tracking-tight">
+              Advancing<br />Cardiovascular<br />Research
+            </h2>
+            <h3 className="text-[1.8rem] xl:text-[2.2rem] font-bold text-[#E9C7C2] mb-4 xl:mb-6 tracking-tight">
+              Through Science & Innovation
+            </h3>
+            <p className="text-[#EDE6D8] text-[13px] xl:text-[14px] leading-[1.7] max-w-[420px] mb-6 xl:mb-8 font-medium">
+              Researcher specializing in cardiovascular, renal and<br className="hidden xl:block"/>metabolic diseases, biomedical device development,<br className="hidden xl:block"/>and translational research.
+            </p>
+            
+            <button className="bg-[#F3EDE0] text-[#A6432F] px-6 py-3 xl:px-7 xl:py-3.5 rounded-[12px] text-[13px] xl:text-[14px] font-semibold flex items-center justify-center gap-2 w-max hover:bg-[#E9C7C2] transition-all shadow-lg shadow-[#7a122a]/20 group">
+              Explore My Research 
+              <span className="text-lg font-light leading-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">â†—</span>
+            </button>
+          </motion.div>
+
+
+        </div>
+
+        {/* Center Portrait Image */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.3 }}
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] xl:w-[850px] h-[90%] pointer-events-none z-10"
+        >
+          <Image
+            src="/scientist-portrait final.png"
+            alt="Dr. Priyanka Portrait"
+            fill
+            className="object-contain object-bottom"
+            priority
+          />
+        </motion.div>
+
+        {/* Right Column (Focus Areas & Current Research) */}
+        <div className="flex flex-col items-end w-[45%] h-full ml-auto pt-8 xl:pt-16 pb-16 xl:pb-24 relative z-20">
+          
+          {/* Research Areas List */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-col gap-4 xl:gap-6 w-[240px] xl:w-[280px]"
+          >
+            {[
+              "CARDIOVASCULAR\nRESEARCH",
+              "MITOCHONDRIAL\nBIOLOGY",
+              "BIOMEDICAL\nDEVICES",
+              "TRANSLATIONAL\nRESEARCH"
+            ].map((area, idx) => (
+              <div key={idx} className="border-b border-[#E9C7C2]/30 pb-3 xl:pb-4 relative group flex flex-col">
+                <span className="text-[#F3EDE0] font-bold text-[12px] xl:text-[13px] mb-1">0{idx + 1}</span>
+                <p className="text-[10px] xl:text-[11px] font-bold text-[#E9C7C2] tracking-widest leading-[1.6] whitespace-pre-line">{area}</p>
+                {/* Decorative right dot aligned with border */}
+                <div className="absolute right-0 bottom-[-2.5px] w-1 h-1 rounded-full bg-[#F3EDE0] opacity-80"></div>
+              </div>
+            ))}
+          </motion.div>
+
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\home\AboutPreview.tsx ---
+
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+
+export default function AboutPreview() {
+  return (
+    <section className="min-h-screen w-full py-24 px-8 flex flex-col items-center justify-center bg-[#A6432F] text-[#F3EDE0]">
+      <div className="max-w-[1400px] w-full flex flex-col md:flex-row items-center gap-16">
+        
+        {/* Left: Image (Placeholder) */}
+        <div className="md:w-1/2 w-full flex justify-center">
+          <div className="relative w-full max-w-md aspect-[4/5] rounded-[3rem] overflow-hidden border-8 border-[#5e0a1f] shadow-2xl">
+            <Image src="/potrait.jpeg" alt="Dr. Priyanka N P" fill className="object-cover" priority />
+          </div>
+        </div>
+
+        {/* Right: Content */}
+        <div className="md:w-1/2 flex flex-col items-start">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="text-sm font-semibold tracking-widest uppercase text-[#EDE6D8]">About The Researcher</span>
+            <div className="h-[1px] w-12 bg-[#e8d5d5]"></div>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-8 leading-tight">
+            Bridging the gap between <span className="font-light italic text-[#EDE6D8]">benchside science</span> and clinical application.
+          </h2>
+          
+          <div className="space-y-6 text-[#EDE6D8] leading-relaxed mb-10 text-lg">
+            <p>
+              Dr. Priyanka N P is a dedicated researcher specializing in cardiovascular device development and biomedical engineering. With over 8 years of experience in experimental science, her work focuses on creating innovative solutions that directly impact patient care.
+            </p>
+            <p>
+              Her approach combines rigorous laboratory methodology with a deep understanding of clinical needs, particularly in the realm of cardiac graft viability and tissue engineering.
+            </p>
+          </div>
+          
+          <button className="flex items-center gap-3 px-8 py-4 rounded-full bg-[#F3EDE0] text-[#A6432F] font-semibold hover:bg-[#5e0a1f] transition-colors shadow-lg">
+            Read Full Biography <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\home\ContactCTA.tsx ---
+
+import { Mail } from "lucide-react";
+
+export default function ContactCTA() {
+  return (
+    <section className="w-full pt-24 pb-12 px-8 flex flex-col items-center justify-center bg-[#A6432F] text-[#F3EDE0] relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#A6432F] rounded-full blur-[120px] opacity-50 translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#2a0812] rounded-full blur-[150px] opacity-60 -translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+
+      <div className="max-w-[1000px] w-full relative z-10 text-center flex flex-col items-center">
+        <h2 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
+          Ready to <span className="font-light italic">collaborate?</span>
+        </h2>
+        
+        <p className="text-xl text-[#EDE6D8] leading-relaxed mb-12 max-w-2xl">
+          Interested in research partnerships, speaking engagements, or learning more about ongoing projects in cardiovascular innovation?
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <button className="flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-[#F3EDE0] text-[#A6432F] font-bold text-lg hover:scale-105 transition-transform shadow-2xl">
+            <Mail className="w-6 h-6" />
+            Get in Touch
+          </button>
+          <button className="flex items-center justify-center gap-3 px-10 py-5 rounded-full bg-[#A6432F]/70 backdrop-blur-md border border-[#E9C7C2]/30 text-[#F3EDE0] font-bold text-lg hover:bg-[#A6432F]/70 transition-colors">
+            View LinkedIn
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\home\CurrentWork.tsx ---
+
+import { ArrowUpRight } from "lucide-react";
+
+export default function CurrentWork() {
+  const works = [
+    {
+      title: "Biomaterials for Vascular Grafts",
+      category: "Tissue Engineering",
+      status: "In Progress",
+      description: "Investigating novel biodegradable polymers for creating off-the-shelf small diameter vascular grafts."
+    },
+    {
+      title: "AI-Driven Echocardiogram Analysis",
+      category: "Digital Health",
+      status: "Data Collection",
+      description: "Developing machine learning models to predict early onset of heart failure from standard echo images."
+    },
+    {
+      title: "Targeted Drug Delivery in Myocardial Infarction",
+      category: "Nanomedicine",
+      status: "In Vivo Testing",
+      description: "Designing nanoparticle-based systems to deliver regenerative factors specifically to infarcted cardiac tissue."
+    }
+  ];
+
+  return (
+    <section className="min-h-screen w-full py-24 px-8 flex flex-col items-center justify-center bg-[#A6432F] text-[#F3EDE0]">
+      <div className="max-w-[1400px] w-full">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
+              Current Work
+            </h2>
+            <p className="text-[#EDE6D8] max-w-lg leading-relaxed">
+              Ongoing projects bridging the gap between benchside discovery and bedside application in cardiovascular medicine.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {works.map((work, idx) => (
+            <div 
+              key={idx} 
+              className="group bg-[#A6432F]/70 backdrop-blur-md rounded-[2rem] p-8 border border-[#E9C7C2]/30 hover:bg-[#A6432F]/70 transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col h-full"
+            >
+              <div className="flex justify-between items-start mb-6">
+                <span className="text-xs font-semibold tracking-widest uppercase text-[#EDE6D8]">
+                  {work.category}
+                </span>
+                <div className="w-8 h-8 rounded-full bg-[#A6432F] border border-[#E9C7C2]/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <ArrowUpRight className="w-4 h-4" />
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-semibold mb-4 leading-snug">
+                {work.title}
+              </h3>
+              
+              <p className="text-sm text-[#EDE6D8] leading-relaxed mb-8 flex-grow">
+                {work.description}
+              </p>
+              
+              <div className="mt-auto">
+                <div className="inline-flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                  <span className="text-xs font-medium tracking-wide uppercase text-[#EDE6D8]">
+                    {work.status}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\home\FeaturedResearch.tsx ---
+
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+
+export default function FeaturedResearch() {
+  return (
+    <section className="min-h-screen w-full py-24 px-8 flex flex-col items-center justify-center bg-[#A6432F] text-[#F3EDE0]">
+      <div className="max-w-[1400px] w-full flex flex-col items-center">
+        <div className="w-full flex justify-between items-end mb-16">
+          <div>
+            <div className="flex items-center gap-4 mb-4">
+              <span className="text-sm font-semibold tracking-widest uppercase text-[#EDE6D8]">Featured Project</span>
+              <div className="h-[1px] w-12 bg-[#e8d5d5]"></div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">
+              Cardiac Graft Transportation
+            </h2>
+          </div>
+          <button className="hidden md:flex items-center gap-2 text-xs font-bold bg-[#F3EDE0] text-[#A6432F] px-6 py-3 rounded-full hover:bg-[#5e0a1f] transition-colors uppercase tracking-widest shadow-lg">
+            View Case Study <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+        <div className="w-full bg-[#A6432F]/70 backdrop-blur-md rounded-[3rem] border border-[#E9C7C2]/30 overflow-hidden flex flex-col md:flex-row">
+          {/* Content */}
+          <div className="md:w-1/2 p-12 lg:p-16 flex flex-col justify-between">
+            <div>
+              <div className="inline-block px-4 py-1.5 rounded-full bg-[#A6432F]/70 text-xs font-semibold tracking-widest uppercase mb-8">
+                Device Development
+              </div>
+              <h3 className="text-3xl font-semibold mb-6 leading-tight">
+                Viability Monitoring System for Ex-Vivo Hearts
+              </h3>
+              <p className="text-[#EDE6D8] leading-relaxed mb-8">
+                Developed a novel transportation system that continuously monitors the viability of cardiac grafts during transit. This innovation extends the preservation window and improves post-transplant outcomes by providing real-time metabolic and functional data.
+              </p>
+              
+              <ul className="space-y-4 mb-12">
+                {[
+                  "Continuous Perfusion Technology",
+                  "Real-time Metabolic Assessment",
+                  "Automated Temperature Control"
+                ].map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-sm font-medium text-[#EDE6D8]">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#A6432F]"></div>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <button className="md:hidden flex items-center gap-2 text-xs font-bold bg-[#F3EDE0] text-[#A6432F] px-6 py-3 rounded-full hover:bg-[#5e0a1f] transition-colors uppercase tracking-widest shadow-lg mb-8">
+              View Case Study <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* Image Area (Abstract Dashboard Graphic) */}
+          <div className="md:w-1/2 relative min-h-[400px] bg-gradient-to-br from-[#F3EDE0]/20 to-[#2a0812]/40 flex items-center justify-center p-8">
+            
+            <div className="relative w-full max-w-[320px] aspect-square bg-[#A6432F]/70 backdrop-blur-xl border border-[#E9C7C2]/30 rounded-3xl p-8 flex flex-col items-center justify-center shadow-2xl overflow-hidden group">
+              {/* Background Glow */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08)_0%,transparent_70%)] opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+              
+              {/* Central Heart Monitor */}
+              <div className="relative z-10 w-24 h-24 rounded-full bg-[#A6432F] border border-[#E9C7C2]/30 flex items-center justify-center mb-8 border border-[#E9C7C2]/30 shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+                <div className="absolute inset-0 rounded-full border border-[#d9b8b8] animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#F3EDE0]">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/>
+                </svg>
+              </div>
+
+              {/* Data Metrics */}
+              <div className="relative z-10 w-full flex flex-col gap-5">
+                {/* Metric 1 */}
+                <div className="w-full flex items-center gap-3">
+                  <span className="text-[10px] font-bold tracking-wider text-[#9b9b9b] w-10">SpO2</span>
+                  <div className="flex-1 h-1.5 bg-[#A6432F] border border-[#E9C7C2]/30 rounded-full overflow-hidden">
+                    <div className="h-full bg-[#A6432F]/90 w-[98%] rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
+                  </div>
+                  <span className="text-xs font-semibold text-[#EDE6D8] w-8 text-right">98%</span>
+                </div>
+                {/* Metric 2 */}
+                <div className="w-full flex items-center gap-3">
+                  <span className="text-[10px] font-bold tracking-wider text-[#9b9b9b] w-10">BPM</span>
+                  <div className="flex-1 h-1.5 bg-[#A6432F] border border-[#E9C7C2]/30 rounded-full overflow-hidden">
+                    <div className="h-full bg-[#A6432F]/70 w-[72%] rounded-full"></div>
+                  </div>
+                  <span className="text-xs font-semibold text-[#EDE6D8] w-8 text-right">72</span>
+                </div>
+                {/* Metric 3 */}
+                <div className="w-full flex items-center gap-3">
+                  <span className="text-[10px] font-bold tracking-wider text-[#9b9b9b] w-10">TEMP</span>
+                  <div className="flex-1 h-1.5 bg-[#A6432F] border border-[#E9C7C2]/30 rounded-full overflow-hidden">
+                    <div className="h-full bg-[#A6432F]/60 w-[34%] rounded-full"></div>
+                  </div>
+                  <span className="text-xs font-semibold text-[#EDE6D8] w-8 text-right">34Â°C</span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\home\ResearchAtAGlance.tsx ---
+
+export default function ResearchAtAGlance() {
+  const stats = [
+    { number: "8+", label: "Years Experience" },
+    { number: "25+", label: "Publications" },
+    { number: "10+", label: "Projects Lead" },
+    { number: "3", label: "Patents Pending" },
+  ];
+
+  return (
+    <section className="w-full py-20 px-8 flex flex-col items-center justify-center bg-[#A6432F] text-[#F3EDE0] overflow-hidden relative">
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M0,50 Q25,20 50,50 T100,50" fill="none" stroke="#2b2b2b" strokeWidth="0.5" />
+          <path d="M0,60 Q25,30 50,60 T100,60" fill="none" stroke="#2b2b2b" strokeWidth="0.2" />
+        </svg>
+      </div>
+
+      <div className="max-w-[1400px] w-full relative z-10 flex flex-col items-center">
+        <div className="flex items-center gap-4 mb-16">
+          <span className="text-sm font-semibold tracking-widest uppercase text-[#EDE6D8]">At a Glance</span>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 w-full">
+          {stats.map((stat, idx) => (
+            <div key={idx} className="flex flex-col items-center text-center">
+              <h3 
+                className="text-6xl md:text-8xl font-black mb-4 tracking-tighter"
+                style={{
+                  background: 'linear-gradient(180deg, #7a122a 0%, #2a0812 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                {stat.number}
+              </h3>
+              <p className="text-sm md:text-base text-[#EDE6D8] uppercase tracking-widest font-medium">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\home\ResearchFocus.tsx ---
+
+import { HeartPulse, TestTube2, Stethoscope, Microscope } from "lucide-react";
+
+export default function ResearchFocus() {
+  const focuses = [
+    {
+      title: "Cardiovascular Device Development",
+      description: "Innovating devices for cardiac graft transportation and viability monitoring to improve transplant outcomes.",
+      icon: <HeartPulse className="w-8 h-8 text-[#EDE6D8]" strokeWidth={1.5} />,
+    },
+    {
+      title: "Biomedical Engineering",
+      description: "Bridging the gap between engineering and medicine to create scalable solutions for critical care.",
+      icon: <TestTube2 className="w-8 h-8 text-[#EDE6D8]" strokeWidth={1.5} />,
+    },
+    {
+      title: "Translational Medicine",
+      description: "Accelerating the journey of laboratory discoveries into clinical practice for immediate patient benefit.",
+      icon: <Stethoscope className="w-8 h-8 text-[#EDE6D8]" strokeWidth={1.5} />,
+    },
+    {
+      title: "Experimental Science",
+      description: "Rigorous scientific methodology applied to complex physiological problems in cardiovascular health.",
+      icon: <Microscope className="w-8 h-8 text-[#EDE6D8]" strokeWidth={1.5} />,
+    },
+  ];
+
+  return (
+    <section className="relative min-h-screen w-full py-24 px-8 flex flex-col items-center justify-center bg-[#A6432F] text-[#F3EDE0] overflow-hidden">
+
+      <div className="relative z-10 max-w-[1400px] w-full flex flex-col md:flex-row gap-16">
+        {/* Left: Heading */}
+        <div className="md:w-1/3 flex flex-col justify-center">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="h-[1px] w-12 bg-[#e8d5d5]"></div>
+            <span className="text-sm font-semibold tracking-widest uppercase text-[#EDE6D8]">Core Pillars</span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-semibold leading-tight tracking-tight mb-6">
+            Research <br /> <span className="font-light italic text-[#EDE6D8]">Focus</span>
+          </h2>
+          <p className="text-[#EDE6D8] leading-relaxed max-w-sm">
+            Dedicated to advancing cardiovascular care through rigorous experimental science, innovative device development, and translational biomedical engineering.
+          </p>
+        </div>
+
+        {/* Right: Grid */}
+        <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {focuses.map((focus, idx) => (
+            <div 
+              key={idx}
+              className="bg-[#A6432F]/70 backdrop-blur-md rounded-[2rem] p-8 border border-[#E9C7C2]/30 hover:bg-[#A6432F]/70 transition-colors group cursor-pointer"
+            >
+              <div className="w-16 h-16 rounded-full bg-[#A6432F] border border-[#E9C7C2]/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                {focus.icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-3">{focus.title}</h3>
+              <p className="text-sm text-[#EDE6D8] leading-relaxed">
+                {focus.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\home\ScrollDNA.tsx ---
+
+"use client";
+
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
+
+export default function ScrollDNA() {
+  const { scrollYProgress } = useScroll();
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const [dimensions, setDimensions] = useState({ w: 0, h: 0, vh: 0 });
+
+  useEffect(() => {
+    const update = () => {
+      setDimensions({
+        w: document.documentElement.clientWidth,
+        h: document.documentElement.scrollHeight,
+        vh: window.innerHeight
+      });
+    };
+    update();
+    window.addEventListener("resize", update);
+    const observer = new ResizeObserver(update);
+    observer.observe(document.body);
+    return () => {
+      window.removeEventListener("resize", update);
+      observer.disconnect();
+    };
+  }, []);
+
+  // Map scroll progress to ensure the line is drawn down to the bottom of the viewport
+  const initialProgress = dimensions.h > 0 ? Math.min(1, dimensions.vh / dimensions.h) : 0;
+  const drawProgress = useTransform(smoothProgress, [0, 1], [initialProgress, 1]);
+
+  if (dimensions.w === 0) return null;
+
+  const w = dimensions.w;
+  const h = dimensions.h;
+  const vh = dimensions.vh; // Height of hero section
+  const step = 20;
+  
+  let pathA = "";
+  let pathB = "";
+  let rungs = "";
+
+  const macroAmplitude = w * 0.35; 
+  const centerX = w / 2;
+  const macroWavelength = 3000; 
+  
+  const dnaAmplitude = 25; 
+  const dnaWavelength = 150; 
+
+  for (let y = 0; y <= h + 100; y += step) {
+    const macroX = centerX + macroAmplitude * Math.sin((y / macroWavelength) * Math.PI * 2);
+    const offset = dnaAmplitude * Math.sin((y / dnaWavelength) * Math.PI * 2);
+    
+    const xA = macroX + offset;
+    const xB = macroX - offset;
+
+    if (y === 0) {
+      pathA += `M ${xA} ${y} `;
+      pathB += `M ${xB} ${y} `;
+    } else {
+      pathA += `L ${xA} ${y} `;
+      pathB += `L ${xB} ${y} `;
+    }
+  }
+
+  for (let y = 0; y <= h + 100; y += 75) {
+    const macroX = centerX + macroAmplitude * Math.sin((y / macroWavelength) * Math.PI * 2);
+    const offset = dnaAmplitude * Math.sin((y / dnaWavelength) * Math.PI * 2);
+    const xA = macroX + offset;
+    const xB = macroX - offset;
+    rungs += `M ${xA} ${y} L ${xB} ${y} `;
+  }
+
+  return (
+    <div 
+      className="absolute inset-0 pointer-events-none z-[5] overflow-hidden opacity-10"
+      style={{
+        maskImage: 'linear-gradient(to bottom, transparent 0%, transparent calc(100vh - 150px), black calc(100vh + 150px))',
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent calc(100vh - 150px), black calc(100vh + 150px))'
+      }}
+    >
+      <svg 
+        viewBox={`0 0 ${w} ${h}`} 
+        width={w} 
+        height={h} 
+        className="w-full h-full drop-shadow-[0_0_8px_rgba(243,237,224,0.2)]"
+      >
+        {/* Faint background DNA */}
+        <path d={pathA} fill="none" stroke="rgba(243,237,224,0.1)" strokeWidth="1" />
+        <path d={pathB} fill="none" stroke="rgba(243,237,224,0.1)" strokeWidth="1" />
+        <path d={rungs} fill="none" stroke="rgba(243,237,224,0.05)" strokeWidth="1" />
+        
+        {/* Animated Drawing DNA */}
+        <motion.path 
+          d={pathA} 
+          fill="none" 
+          stroke="#2b2b2b" 
+          strokeWidth="3" 
+          style={{ pathLength: drawProgress }} 
+        />
+        <motion.path 
+          d={pathB} 
+          fill="none" 
+          stroke="#2b2b2b" 
+          strokeWidth="3" 
+          style={{ pathLength: drawProgress }} 
+        />
+        <motion.path 
+          d={rungs} 
+          fill="none" 
+          stroke="rgba(43,43,43,0.3)" 
+          strokeWidth="2" 
+          style={{ pathLength: drawProgress }} 
+        />
+      </svg>
+    </div>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\home\SelectedPublications.tsx ---
+
+import { FileText, ExternalLink } from "lucide-react";
+
+export default function SelectedPublications() {
+  const publications = [
+    {
+      year: "2025",
+      title: "Advanced Preservation Techniques for Ex-Vivo Cardiac Grafts: A Review of Current Modalities",
+      journal: "Journal of Cardiovascular Translational Research",
+      authors: "Priyanka N P, et al.",
+      link: "#"
+    },
+    {
+      year: "2024",
+      title: "Real-time Metabolic Monitoring Systems in Organ Transplantation",
+      journal: "Biomedical Engineering Online",
+      authors: "Priyanka N P, Smith J.",
+      link: "#"
+    },
+    {
+      year: "2023",
+      title: "Novel Biomaterials for Enhanced Viability of Cardiovascular Tissue Scaffolds",
+      journal: "Tissue Engineering Part A",
+      authors: "Doe A, Priyanka N P, et al.",
+      link: "#"
+    }
+  ];
+
+  return (
+    <section className="min-h-screen w-full py-24 px-8 flex flex-col items-center justify-center bg-[#A6432F] text-[#F3EDE0]">
+      <div className="max-w-[1400px] w-full flex flex-col md:flex-row gap-16">
+        
+        {/* Left Column */}
+        <div className="md:w-1/3">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
+              Selected <br /> <span className="font-light italic text-[#EDE6D8]">Publications</span>
+            </h2>
+            <p className="text-[#EDE6D8] leading-relaxed mb-8 max-w-sm">
+              A curated selection of recent peer-reviewed articles contributing to the advancement of biomedical engineering and cardiovascular research.
+            </p>
+            <button className="flex items-center gap-2 px-6 py-3 rounded-full bg-[#F3EDE0] text-[#A6432F] font-semibold text-sm hover:bg-[#5e0a1f] transition-colors shadow-lg">
+              <FileText className="w-4 h-4" />
+              View All Publications
+            </button>
+          </div>
+        </div>
+
+        {/* Right Column: List */}
+        <div className="md:w-2/3 flex flex-col gap-6">
+          {publications.map((pub, idx) => (
+            <a 
+              key={idx} 
+              href={pub.link}
+              className="group block bg-[#A6432F]/70 backdrop-blur-md rounded-[2rem] p-8 border border-[#E9C7C2]/30 hover:bg-[#A6432F]/70 transition-all duration-300"
+            >
+              <div className="flex justify-between items-start mb-4">
+                <span className="text-2xl font-bold text-[#9b9b9b] group-hover:text-[#9b9b9b] transition-colors">
+                  {pub.year}
+                </span>
+                <ExternalLink className="w-5 h-5 text-[#9b9b9b] group-hover:text-[#F3EDE0] transition-colors" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3 leading-snug group-hover:text-[#F3EDE0] transition-colors">
+                {pub.title}
+              </h3>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-[#EDE6D8]">
+                <span className="font-medium text-[#EDE6D8]">{pub.journal}</span>
+                <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-[#A6432F]/30"></span>
+                <span>{pub.authors}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\innovations\CardiacGraftTransportation.tsx ---
+
+import Image from "next/image";
+import { Heart } from "lucide-react";
+import FadeIn from "@/components/ui/FadeIn";
+
+export default function CardiacGraftTransportation() {
+  return (
+    <section className="w-full py-32 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center relative overflow-hidden">
+      <div className="max-w-[1400px] w-full flex flex-col md:flex-row gap-16 items-center relative z-10">
+        <div className="md:w-1/2">
+          <FadeIn direction="right">
+            <div className="flex items-center gap-4 mb-6">
+              <Heart className="w-8 h-8 text-[#F3EDE0]" />
+              <span className="text-sm font-semibold tracking-widest uppercase text-[#EDE6D8]">Core Project</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-8">
+              Cardiac Graft <br /> <span className="font-light italic text-[#EDE6D8]">Transportation</span>
+            </h2>
+            <p className="text-xl text-[#EDE6D8] leading-relaxed mb-8">
+              Played a key role in the development of an innovative transportation system for cardiac graft transplantation utilizing continuous perfusion. This critical advancement aims to prevent warm and cold ischemic insults during organ transit.
+            </p>
+            <div className="bg-[#A6432F]/70 p-8 rounded-3xl border border-[#E9C7C2]/30 border-l-4 border-l-[#7a122a] shadow-2xl backdrop-blur-md">
+              <h4 className="text-xl font-bold mb-3 tracking-tight">The Portable MVP</h4>
+              <p className="text-[#EDE6D8] leading-relaxed">
+                Successfully created a portable MVP capable of resuscitating hearts after 10-20 minutes of warm ischemia, maintaining them in a healthy, beating state for 4-9 hours prior to transplant.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+        <div className="md:w-1/2 w-full flex justify-center">
+          <FadeIn direction="left" delay={0.2} className="relative w-full aspect-square max-w-lg rounded-[3rem] overflow-hidden border border-[#E9C7C2]/30 shadow-lg">
+            <Image 
+              src="/biomedical_device_abstract.jpg" 
+              alt="Biomedical Device Prototype" 
+              fill 
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#4a0818] via-transparent to-transparent opacity-80"></div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\innovations\InnovationHero.tsx ---
+
+export default function InnovationHero() {
+  return (
+    <section className="relative w-full pt-28 pb-12 px-8 flex flex-col items-center justify-center bg-[#A6432F] text-[#F3EDE0] overflow-hidden">
+      {/* Elegant Background Design */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-[-20%] left-[-10%] w-[40%] h-[40%] bg-[#A6432F]/5 blur-[100px] rounded-full"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-black/20 blur-[100px] rounded-full"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
+      </div>
+
+      <div className="relative z-10 max-w-[1000px] w-full text-center mt-8">
+        <span className="text-sm font-semibold tracking-widest uppercase text-[#EDE6D8] mb-6 block">HTIC-IITM Research Park</span>
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+          Biomedical <span className="font-light italic text-[#EDE6D8]">Innovation</span>
+        </h1>
+        <p className="text-xl text-[#EDE6D8] leading-relaxed max-w-2xl mx-auto">
+          Bridging the gap between physiological science and mechanical engineering to develop the next generation of cardiovascular devices.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\innovations\Patents.tsx ---
+
+import { ShieldCheck } from "lucide-react";
+
+export default function Patents() {
+  const patents = [
+    {
+      title: "An apparatus for marshalling analytes",
+      inventors: "Swaminathan H, Prem PN, Kurian GA.",
+      patentNo: "202441074722",
+      date: "Oct. 3, 2024"
+    },
+    {
+      title: "Preserving an Organ in Near-Physiological Environment",
+      inventors: "Nabeel PM, Prem PN, Joseph J, Sivaprakasam M.",
+      patentNo: "202541097933",
+      date: "Oct. 10, 2025"
+    }
+  ];
+
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1400px] w-full">
+        <div className="flex items-center gap-4 mb-12 border-b border-[#E9C7C2]/30 pb-4">
+          <ShieldCheck className="w-8 h-8 text-[#EDE6D8]" />
+          <h2 className="text-3xl font-semibold">Filed Patents</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {patents.map((patent, idx) => (
+            <div key={idx} className="bg-[#A6432F] p-10 rounded-[3rem] border border-[#E9C7C2]/30 flex flex-col justify-between shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#A6432F]/70 rounded-bl-[100px] transition-transform group-hover:scale-110"></div>
+              <div className="relative z-10">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-[#A6432F]/70 text-xs font-bold tracking-widest text-[#F3EDE0] mb-6">
+                  Indian Patent
+                </span>
+                <h3 className="text-2xl font-bold mb-4">{patent.title}</h3>
+                <p className="text-[#EDE6D8] text-sm leading-relaxed mb-8">{patent.inventors}</p>
+                <div className="flex justify-between items-center border-t border-[#E9C7C2]/30 pt-6">
+                  <span className="font-mono text-sm text-[#9b9b9b]">#{patent.patentNo}</span>
+                  <span className="text-sm font-semibold">{patent.date}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\innovations\ResearchToPrototype.tsx ---
+
+import { Settings, CheckCircle2 } from "lucide-react";
+
+export default function ResearchToPrototype() {
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1000px] w-full">
+        <div className="text-center mb-16">
+          <Settings className="w-10 h-10 text-[#F3EDE0] mx-auto mb-6" />
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
+            Research to <span className="font-light italic text-[#EDE6D8]">Prototype</span>
+          </h2>
+          <p className="text-lg text-[#EDE6D8] leading-relaxed">
+            The journey from theoretical concepts to a functioning biomedical device requires rigorous testing, iteration, and validation.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-6">
+          <div className="bg-[#A6432F]/70 p-8 rounded-[2.5rem] border border-[#E9C7C2]/30 flex items-start gap-6">
+            <div className="w-12 h-12 rounded-full bg-[#F3EDE0]/10 flex items-center justify-center flex-shrink-0">
+              <span className="font-bold text-[#F3EDE0]">01</span>
+            </div>
+            <div>
+              <h4 className="text-xl font-bold mb-2">Proof of Concept Iteration</h4>
+              <p className="text-[#EDE6D8] leading-relaxed text-sm">
+                Assisted in the design and development of five proof-of-concept systems, continuously iterating and refining the mechanics to achieve the current portable Minimum Viable Product (MVP).
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-[#A6432F]/70 p-8 rounded-[2.5rem] border border-[#E9C7C2]/30 flex items-start gap-6">
+            <div className="w-12 h-12 rounded-full bg-[#F3EDE0]/10 flex items-center justify-center flex-shrink-0">
+              <span className="font-bold text-[#F3EDE0]">02</span>
+            </div>
+            <div>
+              <h4 className="text-xl font-bold mb-2">Slaughterhouse Experiments</h4>
+              <p className="text-[#EDE6D8] leading-relaxed text-sm">
+                Conducted over 100 slaughterhouse experiments using ovine hearts. Successfully managed complex cardiac conditions such as bradycardia, tachycardia, arrhythmias, stunning, and flutter during testing.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-[#A6432F]/70 p-8 rounded-[2.5rem] border border-[#E9C7C2]/30 flex items-start gap-6">
+            <div className="w-12 h-12 rounded-full bg-[#F3EDE0]/10 flex items-center justify-center flex-shrink-0">
+              <span className="font-bold text-[#F3EDE0]">03</span>
+            </div>
+            <div>
+              <h4 className="text-xl font-bold mb-2">Perfusion Optimization</h4>
+              <p className="text-[#EDE6D8] leading-relaxed text-sm">
+                Researched and optimized perfusion solutions to simulate ideal physiological environments for heart function, significantly reducing ischemia reperfusion injury during transport.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\innovations\ViabilityMonitoring.tsx ---
+
+import { Activity } from "lucide-react";
+
+export default function ViabilityMonitoring() {
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1400px] w-full flex flex-col md:flex-row gap-16 items-center">
+        
+        <div className="md:w-1/2 order-2 md:order-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="bg-[#A6432F]/70 backdrop-blur-md rounded-3xl p-6 border border-[#E9C7C2]/30">
+            <h4 className="text-xl font-bold mb-3">Pressure Tracking</h4>
+            <p className="text-sm text-[#EDE6D8]">Real-time dynamic tracking of perfusion pressures to ensure ideal physiological environments.</p>
+          </div>
+          <div className="bg-[#A6432F]/70 backdrop-blur-md rounded-3xl p-6 border border-[#E9C7C2]/30 mt-0 sm:mt-12">
+            <h4 className="text-xl font-bold mb-3">ECG Monitoring</h4>
+            <p className="text-sm text-[#EDE6D8]">Continuous electrocardiogram interpretation to detect arrhythmias, bradycardia, or flutter.</p>
+          </div>
+          <div className="bg-[#A6432F]/70 backdrop-blur-md rounded-3xl p-6 border border-[#E9C7C2]/30">
+            <h4 className="text-xl font-bold mb-3">Biochemical Markers</h4>
+            <p className="text-sm text-[#EDE6D8]">Integration of sensors to quantify multiple analytes within biological specimens.</p>
+          </div>
+          <div className="bg-[#A6432F]/70 backdrop-blur-md rounded-3xl p-6 border border-[#E9C7C2]/30 mt-0 sm:mt-12">
+            <h4 className="text-xl font-bold mb-3">Data Acquisition</h4>
+            <p className="text-sm text-[#EDE6D8]">Seamless continuous data acquisition, evaluation, and system modification protocols.</p>
+          </div>
+        </div>
+
+        <div className="md:w-1/2 order-1 md:order-2">
+          <div className="flex items-center gap-4 mb-6">
+            <Activity className="w-8 h-8 text-[#F3EDE0]" />
+            <span className="text-sm font-semibold tracking-widest uppercase text-[#EDE6D8]">Data Integration</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
+            Continuous Viability <br /> <span className="font-light italic text-[#EDE6D8]">Monitoring</span>
+          </h2>
+          <p className="text-lg text-[#EDE6D8] leading-relaxed">
+            Contributed significantly to the development of a continuous viability monitoring system. By tracking critical parameters in real-time, the system ensures robust evaluation of device efficacy and provides unprecedented insight into cellular-level changes during ex-vivo perfusion.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\layout\Navbar.tsx ---
+
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useScroll } from "framer-motion";
+import { Home, FlaskConical, BookOpen, Lightbulb, User, Mail } from "lucide-react";
+
+export default function Navbar() {
+  const pathname = usePathname();
+  const { scrollY } = useScroll();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    return scrollY.on("change", (latest) => {
+      setScrolled(latest > 20);
+    });
+  }, [scrollY]);
+
+  const links = [
+    { href: "/", label: "Home", icon: Home, filledOnActive: true },
+    { href: "/research", label: "Research", icon: FlaskConical },
+    { href: "/publications", label: "Publications", icon: BookOpen },
+    { href: "/technologies", label: "Technologies", icon: Lightbulb },
+    { href: "/about", label: "About", icon: User },
+    { href: "/contact", label: "Contact", icon: Mail },
+  ];
+
+  return (
+    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[100]">
+      <div className={`backdrop-blur-xl rounded-full px-4 py-2 flex items-center gap-2 border transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] ${
+        scrolled 
+          ? "bg-[#A6432F]/90 border-[#E9C7C2]/30" 
+          : "bg-[#A6432F]/95 border-[#E9C7C2]/30"
+      }`}>
+        {links.map((link) => {
+          const isActive = pathname === link.href;
+          const Icon = link.icon;
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`relative flex items-center gap-2.5 px-4 py-2 rounded-full font-semibold text-[14px] transition-colors ${
+                isActive
+                  ? "text-[#F3EDE0]"
+                  : "text-[#EDE6D8] hover:text-[#F3EDE0]"
+              }`}
+            >
+              <Icon 
+                size={18} 
+                strokeWidth={isActive && link.filledOnActive ? 0 : 2} 
+                fill={isActive && link.filledOnActive ? "currentColor" : "none"}
+                className={isActive && !link.filledOnActive ? "stroke-[#F3EDE0]" : ""}
+              />
+              <span>{link.label}</span>
+              {isActive && (
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-[2px] bg-[#F3EDE0] rounded-full"></div>
+              )}
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\publications\BookChapters.tsx ---
+
+import { BookOpen } from "lucide-react";
+
+export default function BookChapters() {
+  const chapters = [
+    {
+      authors: "Nabeel PM, Prem PN, Joseph J, Sivaprakasam M.",
+      year: "2025",
+      title: "Biomarkers for Cardiac Graft Assessment in Ex-vivo Machine Perfusion.",
+      publisher: "InTech",
+      doi: "10.5772/intechopen.1010740"
+    },
+    {
+      authors: "Sudarsan N, Joseph J, Raj KV, Nabeel PM, Prem PN, Chandran DS, Sivaprakasam M.",
+      year: "2025",
+      title: "Mechanisms and Quantification of Endothelial Function: Physiology to Pathology.",
+      publisher: "InTech",
+      status: "Accepted for publication"
+    }
+  ];
+
+  return (
+    <section className="w-full py-20 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1400px] w-full">
+        <div className="flex items-center gap-4 mb-10 border-b border-[#E9C7C2]/30 pb-4">
+          <BookOpen className="w-6 h-6 text-[#EDE6D8]" />
+          <h2 className="text-2xl font-semibold">Book Chapters</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {chapters.map((chapter, idx) => (
+            <div key={idx} className="bg-[#A6432F]/70 p-8 rounded-[2rem] border border-[#E9C7C2]/30 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold tracking-widest text-[#F3EDE0] block mb-3">{chapter.year} // {chapter.publisher}</span>
+                <h3 className="text-xl font-bold mb-3 leading-snug">{chapter.title}</h3>
+                <p className="text-sm text-[#EDE6D8] leading-relaxed mb-6">{chapter.authors}</p>
+              </div>
+              <div className="inline-block px-4 py-2 rounded-full bg-[#A6432F]/70 text-xs font-semibold text-[#EDE6D8] w-max">
+                {chapter.doi ? `DOI: ${chapter.doi}` : chapter.status}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\publications\FullPublicationsList.tsx ---
+
+export default function FullPublicationsList() {
+  const groupedPublications = {
+    "2025": [
+      "Prem PN, Kurian GA. Effect of sodium thiosulfate on preventing renal ischemia-reperfusion injury in high-fat diet-fed rats: the role of renal mitochondrial quality. Biol Res. 2025 Aug 18;58(1):56.",
+      "Prem PN, Swaminathan H, Kurian GA. The temporal relationship between mitochondrial quality and renal tissue recovery following ischemia-reperfusion injury. Heliyon. 2025 Jan 2.",
+      "Ansari M, Prem PN, Gino ER, Kurian GA. Subsarcolemmal mitochondrial dysfunction aggravates ischemia-reperfusion injury in diabetic rat hearts on fructose and cholesterol diets. Indian Journal of Experimental Biology. 2025, 63 (04), 291-300."
+    ],
+    "2024": [
+      "Prem PN, Kurian GA. Does cardiac impairment develop in ischemic renal surgery in rats depending on the reperfusion time?. Heliyon. 2024;10(10):e31389."
+    ],
+    "2023": [
+      "Prem PN, Balu KK, Gandhi S, Kurian GA. Preparation of fisetin loaded mesoporous silica nanocarrier to attenuate ischemia reperfusion injury. Journal of Materials Research. 2023 Sep 11:1-3.",
+      "Prem PN, Chellappan DR, Kurian GA. Impaired renal ischemia reperfusion recovery after bilateral renal artery ligation in rats treated with adenine: role of renal mitochondria. Journal of Bioenergetics and Biomembranes. 2023 Jul 1:1-4.",
+      "Boovarahan SR, Kale SB, Prem PN, et al. CABG Patients Develop Global DNA Hypermethylation, That Negatively Affect the Mitochondrial Function and Promote Post-Surgical Cognitive Decline. Journal of Clinical Medicine. 2023.",
+      "Prem PN, Chellappan DR, Kurian GA. High-fat diet-induced mitochondrial dysfunction is associated with loss of protection from ischemic preconditioning in renal ischemia reperfusion. PflÃ¼gers Archiv-European Journal of Physiology. 2023.",
+      "Kurian GA, Ansari M, Prem PN. Diabetic cardiomyopathy attenuated the protective effect of ischaemic post-conditioning against ischaemia-reperfusion injury. Archives of physiology and biochemistry. 2023.",
+      "Boovarahan SR, Balu K, Prem P, Sivakumar B, Kurian GA. DNA hypomethylation by fisetin preserves mitochondria functional genes. Functional & integrative genomics. 2023.",
+      "Prem PN, Kurian GA. Cardiac damage following renal ischemia reperfusion injury increased with excessive consumption of high fat diet but enhanced the cardiac resistance to reperfusion stress. Heliyon. 2023.",
+      "C Vedarathinam R, Rajkumar Y, Prem PN, Vetriselvan P, Kurian GA. High Susceptibility of Statin-Treated Heart to Ischemia-Reperfusion. Indian Journal of Pharmaceutical Sciences. 2023.",
+      "Prem PN, Baskaran K, Johnson JT, Ravindran S, Kurian GA. Evaluation of prophylactic efficacy of sodium thiosulfate in combating I/R injury in rat brain. Naunyn-Schmiedeberg's Archives of Pharmacology. 2023.",
+      "Yegneshwaran V, Prem PN, Boovarahan SR, Kurian GA. Therapeutic Effect of 5-Azacytidine to Attenuate the Ramifying Repercussions of Ischemia Reperfusion Injury. American Journal of Chemistry and Pharmacy. 2023."
+    ],
+    "2022": [
+      "Prem PN, Sivakumar B, Boovarahan SR, Kurian GA. Recent advances in potential of Fisetin in the management of myocardial ischemia-reperfusion injury-A systematic review. Phytomedicine. 2022.",
+      "Prem PN, Sivakumar B, Boovarahan SR, Kurian GA. Long-term administration of fisetin was not as effective as short term in ameliorating IR injury in isolated rat heart. Naunyn-schmiedeberg's Archives of Pharmacology. 2022.",
+      "Ansari M, Prem PN, Kurian GA. Hydrogen sulfide postconditioning rendered cardioprotection against myocardial ischemia-reperfusion injury is compromised in rats with diabetic cardiomyopathy. Microvascular Research. 2022.",
+      "Shanmugam K, Prem PN, Boovarahan SR, Sivakumar B, Kurian GA. FIsetin preserves interfibrillar mitochondria to protect against myocardial ischemia-reperfusion injury. Cell Biochemistry and Biophysics. 2022.",
+      "C. Vedarathinam R, Rajkumar Y, Vetriselvan P, Prem PN, Ganapathy A, Kurian GA. Resveratrol-mediated cardioprotection against myocardial ischemia-reperfusion injury was revoked by statin-induced mitochondrial alterations. Drug and Chemical Toxicology. 2022."
+    ],
+    "2021": [
+      "Prem PN, Kurian GA. High-fat diet increased oxidative stress and mitochondrial dysfunction induced by renal ischemia-reperfusion injury in rat. Frontiers in Physiology. 2021.",
+      "Boovarahan SR, Venkatasubramanian H, Sharma N, Venkatesh S, Prem P, Kurian GA. Inhibition of PI3K/mTOR/KATP channel blunts sodium thiosulphate preconditioning mediated cardioprotection. Archives of Pharmacal Research. 2021.",
+      "Kumar A, Boovarahan SR, Prem PN, Ramanathan M, Chellappan DR, Kurian GA. Evaluating the effects of carbon monoxide releasing molecule-2 against myocardial ischemiaâ€“reperfusion injury. Naunyn-Schmiedeberg's Archives of Pharmacology. 2021.",
+      "Shanmugam K, Boovarahan SR, Prem P, Sivakumar B, Kurian GA. Fisetin attenuates myocardial ischemia-reperfusion injury by activating the reperfusion injury salvage kinase (RISK) signaling pathway. Frontiers in Pharmacology. 2021.",
+      "Sivakumar, B., Boovarahan, S.R., Prem, P.N. and Kurian, G.A. Fisetin ameliorates ischemia re-oxygenation injury in H9c2 cardiomyocytes via targeting the PI3K signalling pathway. Phytomedicine Plus. 2021."
+    ],
+    "2019": [
+      "Kannan S, Boovarahan SR, Rengaraju J, Prem P, Kurian GA. Attenuation of cardiac ischemia-reperfusion injury by sodium thiosulfate is partially dependent on the effect of cystathione beta synthase. Cell Biochemistry and Biophysics. 2019."
+    ]
+  };
+
+  return (
+    <section className="w-full py-20 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1000px] w-full">
+        <h2 className="text-3xl font-semibold mb-12">Full Publications Log</h2>
+        
+        <div className="flex flex-col gap-12">
+          {Object.entries(groupedPublications).map(([year, pubs]) => (
+            <div key={year} className="flex flex-col md:flex-row gap-8">
+              <div className="md:w-32 flex-shrink-0">
+                <span className="text-3xl font-bold text-[#9b9b9b] sticky top-32 block">{year}</span>
+              </div>
+              <div className="flex-1 flex flex-col gap-6">
+                {pubs.map((pub, idx) => (
+                  <div key={idx} className="pb-6 border-b border-[#E9C7C2]/30 last:border-0 last:pb-0">
+                    <p className="text-[#EDE6D8] leading-relaxed text-sm md:text-base">{pub}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\publications\GoogleScholarLink.tsx ---
+
+export default function GoogleScholarLink() {
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1000px] w-full flex flex-col items-center text-center">
+        <h2 className="text-4xl font-semibold tracking-tight mb-6">
+          Explore My Complete Profile
+        </h2>
+        <p className="text-lg text-[#EDE6D8] max-w-2xl mx-auto mb-10 leading-relaxed">
+          For the most up-to-date publication record, citation metrics, and h-index details, please visit my official Google Scholar profile.
+        </p>
+        <a 
+          href="https://scholar.google.com/citations?user=Qk19AYEAAAAJ&hl=en&oi=ao" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="px-10 py-5 rounded-full bg-[#A6432F] text-[#F3EDE0] font-bold text-lg hover:scale-105 transition-transform shadow-2xl flex items-center gap-3"
+        >
+          View on Google Scholar
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\publications\PublicationHero.tsx ---
+
+export default function PublicationHero() {
+  return (
+    <section className="relative w-full pt-28 pb-12 px-8 flex flex-col items-center justify-center bg-[#A6432F] text-[#F3EDE0] overflow-hidden">
+      {/* Elegant Background Design */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-[-20%] left-[-10%] w-[40%] h-[40%] bg-[#A6432F]/5 blur-[100px] rounded-full"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-black/20 blur-[100px] rounded-full"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
+      </div>
+
+      <div className="relative z-10 max-w-[1000px] w-full text-center mt-8">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+          Scientific <span className="font-light italic text-[#EDE6D8]">Publications</span>
+        </h1>
+        <p className="text-xl text-[#EDE6D8] leading-relaxed mb-10 max-w-2xl mx-auto">
+          Over 25 peer-reviewed articles contributing to cardiovascular, renal, and mitochondrial research. 
+        </p>
+        <div className="flex justify-center gap-12">
+          <div className="flex flex-col items-center">
+            <span className="text-5xl font-black mb-2 text-[#F3EDE0]">80+</span>
+            <span className="text-xs tracking-widest uppercase font-semibold text-[#EDE6D8]">Cumulative IF</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span className="text-5xl font-black mb-2 text-[#F3EDE0]">25+</span>
+            <span className="text-xs tracking-widest uppercase font-semibold text-[#EDE6D8]">Publications</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\publications\PublicationHighlights.tsx ---
+
+export default function PublicationHighlights() {
+  const highlights = [
+    {
+      title: "Does cardiac impairment develop in ischemic renal surgery in rats depending on the reperfusion time?",
+      journal: "Heliyon",
+      year: "2024",
+      authors: "Prem PN, Kurian GA."
+    },
+    {
+      title: "Preparation of fisetin loaded mesoporous silica nanocarrier to attenuate ischemia reperfusion injury.",
+      journal: "Journal of Materials Research",
+      year: "2023",
+      authors: "Prem PN, Balu KK, Gandhi S, Kurian GA."
+    },
+    {
+      title: "High-fat diet increased oxidative stress and mitochondrial dysfunction induced by renal ischemia-reperfusion injury in rat.",
+      journal: "Frontiers in Physiology",
+      year: "2021",
+      authors: "Prem PN, Kurian GA."
+    }
+  ];
+
+  return (
+    <section className="w-full py-20 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1400px] w-full">
+        <h2 className="text-2xl font-semibold mb-10 border-b border-[#E9C7C2]/30 pb-4">Selected Highlights</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {highlights.map((item, idx) => (
+            <div key={idx} className="bg-[#A6432F]/70 p-8 rounded-3xl border border-[#E9C7C2]/30 hover:bg-[#A6432F]/70 transition-colors">
+              <span className="text-xs font-bold tracking-widest text-[#F3EDE0] block mb-3">{item.year} // {item.journal}</span>
+              <h3 className="text-lg font-bold mb-4 leading-snug">{item.title}</h3>
+              <p className="text-sm text-[#EDE6D8]">{item.authors}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\research\BiomedicalDevice.tsx ---
+
+import Image from "next/image";
+import FadeIn from "@/components/ui/FadeIn";
+
+export default function BiomedicalDevice() {
+  return (
+    <section className="w-full py-32 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center relative overflow-hidden">
+      <div className="max-w-[1400px] w-full flex flex-col md:flex-row gap-16 items-center relative z-10">
+        
+        <div className="md:w-1/2">
+          <FadeIn direction="right">
+            <div className="bg-[#A6432F]/70 backdrop-blur-md rounded-[3rem] p-10 border border-[#E9C7C2]/30 shadow-lg relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-8 text-[#A6432F]/5">
+                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <span className="text-sm font-bold tracking-widest text-[#F3EDE0] uppercase block mb-4">Patent App 202441074722</span>
+              <h3 className="text-3xl font-bold mb-6 tracking-tight relative z-10">Indigenous Encapsulated Chamber</h3>
+              <p className="text-[#EDE6D8] leading-relaxed text-lg mb-8 relative z-10">
+                Developed an indigenous device housing an encapsulated chamber for the integration of sensors. This facilitates the real-time quantification of multiple analytes within biological specimens, such as mitochondrial oxygen consumption.
+              </p>
+              <div className="inline-flex items-center gap-3 text-[#F3EDE0] font-semibold px-6 py-3 rounded-full bg-[#F3EDE0]/20 border border-[#F3EDE0]/30 relative z-10">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#F3EDE0] animate-pulse"></span> Patent Filed Oct 2024
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+
+        <div className="md:w-1/2">
+          <FadeIn direction="left">
+            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-6">
+              Biomedical Device <br /> <span className="font-light italic text-[#EDE6D8]">Development</span>
+            </h2>
+            <p className="text-xl text-[#EDE6D8] leading-relaxed mb-6">
+              Translating biological understanding into engineering solutions. My recent work bridges the gap between physiological needs and mechanical design, focusing on creating functional prototypes that solve real-world clinical challenges.
+            </p>
+            <p className="text-base text-[#9b9b9b] leading-relaxed">
+              From assisting in the design and development of five proof-of-concept systems, to iterating towards a portable MVP for cardiac graft transportation, my role involves extensive documentation, regulatory compliance, and cross-disciplinary collaboration.
+            </p>
+          </FadeIn>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\research\CardiovascularResearch.tsx ---
+
+import Image from "next/image";
+import FadeIn from "@/components/ui/FadeIn";
+
+export default function CardiovascularResearch() {
+  return (
+    <section className="w-full py-32 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center relative overflow-hidden">
+      <div className="max-w-[1400px] w-full flex flex-col md:flex-row gap-16 items-center relative z-10">
+        
+        <div className="md:w-1/2 order-2 md:order-1 flex flex-col gap-8">
+          <FadeIn direction="right">
+            <div className="bg-[#A6432F]/70 backdrop-blur-md rounded-[2rem] p-10 border border-[#E9C7C2]/30 shadow-lg">
+              <h4 className="text-xl font-bold mb-3 tracking-tight">Pharmacological Management of IR Injury</h4>
+              <p className="text-[#EDE6D8] text-sm leading-relaxed">
+                Extensive investigations into the potential of Sodium Thiosulphate and Fisetin in ameliorating myocardial ischemia reperfusion injury using in vitro cell-based models, ex vivo isolated rat heart models, and in vivo LAD ligation models.
+              </p>
+            </div>
+          </FadeIn>
+          <FadeIn direction="right" delay={0.2}>
+            <div className="bg-[#A6432F]/70 backdrop-blur-md rounded-[2rem] p-10 border border-[#E9C7C2]/30 shadow-lg">
+              <h4 className="text-xl font-bold mb-3 tracking-tight">Cardioprotective Signaling Pathways</h4>
+              <p className="text-[#EDE6D8] text-sm leading-relaxed">
+                Identified the potential of pharmacological agents in activating cardioprotective signaling pathways, studying the effects of intratracheal administration of diesel particulate matter on IR injury, and managing diabetic cardiomyopathy.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+
+        <div className="md:w-1/2 order-1 md:order-2">
+          <FadeIn direction="left">
+            <div className="relative w-full aspect-square max-w-md mx-auto mb-10 rounded-full overflow-hidden border-4 border-white/5 shadow-lg">
+              <Image 
+                src="/cardiovascular_abstract.jpg" 
+                alt="Cardiovascular Abstract" 
+                fill 
+                className="object-cover"
+              />
+            </div>
+            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-6">
+              Cardiovascular <br /> <span className="font-light italic text-[#EDE6D8]">Research</span>
+            </h2>
+            <p className="text-lg text-[#EDE6D8] leading-relaxed">
+              My foundational research has been deeply rooted in understanding and mitigating myocardial ischemia reperfusion (IR) injury. Through rigorous experimental models, we have explored novel pharmacological interventions and identified key signaling pathways that offer cardioprotection under acute stress.
+            </p>
+          </FadeIn>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\research\FeaturedProjects.tsx ---
+
+import { ExternalLink } from "lucide-react";
+
+export default function FeaturedProjects() {
+  const projects = [
+    {
+      agency: "ICMR, New Delhi",
+      title: "Sodium Thiosulphate as Novel Drug for Ischemia Reperfusion Injury in an Isolated Rat Heart Model",
+      desc: "Identified the potential of STS in activating cardioprotective signalling pathways in myocardial ischemia reperfusion injury."
+    },
+    {
+      agency: "DST-SERB, New Delhi",
+      title: "Fisetin: A Novel Drug in the Management of Myocardial Ischemia Reperfusion Injury",
+      desc: "Investigated cardioprotective signaling using in vitro, ex vivo isolated heart, in vivo LAD ligation, and myocardial infarction models."
+    },
+    {
+      agency: "DST-SERB, New Delhi",
+      title: "Molecular Insights of Mitochondrial Changes During Myocardial IR Injury",
+      desc: "Studied the effect of intratracheal administration of SRM 1650b on myocardial ischemia reperfusion injury and recovery protocols."
+    },
+    {
+      agency: "Meenakshi Hospital, Thanjavur",
+      title: "Discovery of a Novel Mitochondria Based Circulatory Marker",
+      desc: "Conducted a retrospective single center-based clinical trial processing blood and tissue samples to assess metabolic recovery from revascularization in CABG patients."
+    }
+  ];
+
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1400px] w-full">
+        <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-16 text-center">
+          Funded <span className="font-light italic text-[#EDE6D8]">Projects</span>
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((proj, idx) => (
+            <div key={idx} className="group bg-[#A6432F]/70 backdrop-blur-md rounded-3xl p-8 border border-[#E9C7C2]/30 hover:bg-[#A6432F]/70 transition-colors">
+              <div className="flex justify-between items-start mb-4">
+                <span className="text-xs font-bold tracking-widest text-[#F3EDE0] uppercase">{proj.agency}</span>
+                <ExternalLink className="w-5 h-5 text-[#9b9b9b] group-hover:text-[#EDE6D8] transition-colors" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">{proj.title}</h3>
+              <p className="text-[#EDE6D8] text-sm leading-relaxed">{proj.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\research\KeyNumbers.tsx ---
+
+export default function KeyNumbers() {
+  const stats = [
+    { number: "25+", label: "Scientific Publications" },
+    { number: "80+", label: "Cumulative Impact Factor" },
+    { number: "02", label: "Patents Filed" },
+    { number: "100+", label: "Ovine Heart Experiments" }
+  ];
+
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1400px] w-full text-center">
+        <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-16">
+          Research <span className="font-light italic text-[#EDE6D8]">Impact</span>
+        </h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, idx) => (
+            <div key={idx} className="flex flex-col items-center">
+              <span className="text-5xl md:text-7xl font-bold mb-4 tracking-tighter">{stat.number}</span>
+              <span className="text-sm font-medium tracking-widest text-[#EDE6D8] uppercase">{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\research\MitochondrialBiology.tsx ---
+
+import FadeIn from "@/components/ui/FadeIn";
+
+export default function MitochondrialBiology() {
+  return (
+    <section className="w-full py-32 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center relative overflow-hidden">
+      <div className="max-w-[1400px] w-full flex flex-col items-center text-center relative z-10">
+        <FadeIn direction="up">
+          <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-6">
+            Mitochondrial <span className="font-light italic text-[#EDE6D8]">Biology</span>
+          </h2>
+          <p className="text-xl text-[#EDE6D8] leading-relaxed max-w-4xl mx-auto mb-20">
+            Investigating the core engine of cellular function. From understanding ischemia-induced mitochondrial changes to developing targeted nanocarriers, mitochondrial biology has been a consistent thread across my pre-clinical and clinical trials.
+          </p>
+        </FadeIn>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full text-left">
+          <FadeIn delay={0.2} direction="up" className="bg-[#A6432F]/70 backdrop-blur-md p-10 rounded-[2rem] border border-[#E9C7C2]/30 hover:bg-[#A6432F]/70 transition-colors shadow-2xl">
+            <span className="text-sm font-bold tracking-widest text-[#F3EDE0] uppercase block mb-4">01 // Analysis</span>
+            <h4 className="text-2xl font-bold mb-4 tracking-tight">Quality & Quantity Analysis</h4>
+            <p className="text-[#EDE6D8] leading-relaxed">
+              Extensive biochemical profiling using UV-Vis, fluorescence, and luminescence spectroscopy. Molecular validation via qPCR, SDS-PAGE, Western blot, ELISA, IHC, and HPLC. Structural confirmation using Transmission Electron Microscopy.
+            </p>
+          </FadeIn>
+          
+          <FadeIn delay={0.4} direction="up" className="bg-[#A6432F]/70 backdrop-blur-md p-10 rounded-[2rem] border border-[#E9C7C2]/30 hover:bg-[#A6432F]/70 transition-colors shadow-2xl">
+            <span className="text-sm font-bold tracking-widest text-[#F3EDE0] uppercase block mb-4">02 // Clinical Trials</span>
+            <h4 className="text-2xl font-bold mb-4 tracking-tight">Circulatory Markers</h4>
+            <p className="text-[#EDE6D8] leading-relaxed">
+              Conducted a retrospective single-center clinical trial to discover a novel mitochondria-based circulatory marker for assessing metabolic recovery from revascularization injury in CABG patients.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.6} direction="up" className="bg-[#A6432F]/70 backdrop-blur-md p-10 rounded-[2rem] border border-[#E9C7C2]/30 hover:bg-[#A6432F]/70 transition-colors shadow-2xl">
+            <span className="text-sm font-bold tracking-widest text-[#F3EDE0] uppercase block mb-4">03 // Nanomedicine</span>
+            <h4 className="text-2xl font-bold mb-4 tracking-tight">Targeted Drug Delivery</h4>
+            <p className="text-[#EDE6D8] leading-relaxed">
+              Synthesized and characterized mitochondria-targeted mesoporous silica nanoparticles. Conducted targeted drug delivery studies in cell and animal models to manage myocardial ischemia-reperfusion injury.
+            </p>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\research\RenalResearch.tsx ---
+
+import Image from "next/image";
+import FadeIn from "@/components/ui/FadeIn";
+
+export default function RenalResearch() {
+  return (
+    <section className="w-full py-32 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center relative overflow-hidden">
+      <div className="max-w-[1400px] w-full flex flex-col md:flex-row gap-16 items-center relative z-10">
+        
+        <div className="md:w-1/2">
+          <FadeIn direction="right">
+            <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-6">
+              Renal <br /> <span className="font-light italic text-[#EDE6D8]">Research</span>
+            </h2>
+            <p className="text-xl text-[#EDE6D8] leading-relaxed mb-8">
+              My doctoral research focused comprehensively on the "Mitochondrial Role in the Pathology of Renal Ischemia Reperfusion Injury, associated cardiac distant organ dysfunction and management therapies."
+            </p>
+            <ul className="space-y-6 text-[#EDE6D8]">
+              <li className="flex items-start gap-4">
+                <span className="text-[#F3EDE0] mt-1 text-lg">â–¹</span>
+                <span className="text-base leading-relaxed">Prepared rat models of bilateral renal ischemia reperfusion for pathological analysis and pharmacological studies.</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <span className="text-[#F3EDE0] mt-1 text-lg">â–¹</span>
+                <span className="text-base leading-relaxed">Developed and characterized disease models in rats for high fat diet and chronic kidney disease.</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <span className="text-[#F3EDE0] mt-1 text-lg">â–¹</span>
+                <span className="text-base leading-relaxed">Performed network pharmacology-based identification of the effect of drugs on renal ischemia reperfusion injury.</span>
+              </li>
+            </ul>
+          </FadeIn>
+        </div>
+
+        <div className="md:w-1/2 w-full flex justify-center">
+          <FadeIn direction="left" delay={0.2} className="relative w-full aspect-[4/5] max-w-md rounded-[3rem] overflow-hidden border border-[#E9C7C2]/30 shadow-lg">
+            <Image 
+              src="/mitochondria_abstract.jpg" 
+              alt="Mitochondria Render" 
+              fill 
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#5e0a1f] to-transparent opacity-80"></div>
+            <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
+              <div className="text-7xl font-black text-[#A6432F]/20 mb-2">PhD</div>
+              <p className="text-sm font-bold tracking-widest text-[#F3EDE0] uppercase">Defended July 2024</p>
+            </div>
+          </FadeIn>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\research\ResearchExpertise.tsx ---
+
+export default function ResearchExpertise() {
+  const skills = [
+    {
+      category: "In Vivo & Surgical",
+      items: ["Handling lab animals & drug administration", "Cannulation (intra tracheal, jugular, carotid)", "Renal, Myocardial & Cerebral IR models", "Disease models (High fat diet, CKD, Diabetes)"]
+    },
+    {
+      category: "Ex Vivo & In Vitro",
+      items: ["Langendorff heart model (LabChart Pro)", "Ovine heart experiments & parameter tracking", "Cell-based disease models", "Toxicity, viability & pharmacological studies"]
+    },
+    {
+      category: "Molecular & Biochemical",
+      items: ["qPCR, Electrophoresis (Native/SDS)", "Western blot, ELISA, IHC, HPLC", "Spectroscopy (UV-Vis, Fluorescence)", "Network pharmacology & In silico targeting"]
+    },
+    {
+      category: "Imaging & Nanotech",
+      items: ["TEM, SEM, FT-IR, BET & Zeta sizer", "Fluorescence & Phase contrast microscopy", "Live cell imaging & drug internalization", "Synthesis of mesoporous silica nanocarriers"]
+    }
+  ];
+
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1400px] w-full">
+        <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-16 text-center">
+          Technical <span className="font-light italic text-[#EDE6D8]">Expertise</span>
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skills.map((skillGroup, idx) => (
+            <div key={idx} className="flex flex-col">
+              <h4 className="text-lg font-bold mb-6 pb-2 border-b border-[#E9C7C2]/30">{skillGroup.category}</h4>
+              <ul className="space-y-4">
+                {skillGroup.items.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm text-[#EDE6D8]">
+                    <span className="text-[#F3EDE0] mt-0.5">â–¹</span>
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\research\ResearchFocus.tsx ---
+
+export default function ResearchFocus() {
+  const focusAreas = [
+    {
+      title: "Cardiovascular Devices",
+      desc: "Developing transportation and viability monitoring systems for cardiac grafts.",
+      number: "01"
+    },
+    {
+      title: "Ischemia Reperfusion",
+      desc: "Pathology and pharmacological management in renal, cardiac, and cerebral models.",
+      number: "02"
+    },
+    {
+      title: "Mitochondrial Biology",
+      desc: "Analyzing mitochondrial quality, quantity, and targeted nano-medicine delivery.",
+      number: "03"
+    },
+    {
+      title: "Pre-clinical Models",
+      desc: "Extensive experience with in vivo surgical models and ex vivo Langendorff systems.",
+      number: "04"
+    }
+  ];
+
+  return (
+    <section className="w-full py-24 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center">
+      <div className="max-w-[1400px] w-full">
+        <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-16 text-center">
+          Core <span className="font-light italic text-[#EDE6D8]">Focus Areas</span>
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {focusAreas.map((area, idx) => (
+            <div key={idx} className="group bg-[#A6432F]/70 backdrop-blur-md rounded-[2.5rem] p-8 border border-[#E9C7C2]/30 hover:bg-[#A6432F]/70 transition-colors relative overflow-hidden">
+              <div className="absolute -top-6 -right-6 text-8xl font-black text-[#A6432F]/5 group-hover:text-[#F3EDE0]/10 transition-colors">
+                {area.number}
+              </div>
+              <h3 className="text-xl font-bold mb-4 relative z-10">{area.title}</h3>
+              <p className="text-[#EDE6D8] text-sm leading-relaxed relative z-10">{area.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\research\ResearchHero.tsx ---
+
+export default function ResearchHero() {
+  return (
+    <section className="relative w-full pt-28 pb-12 px-8 flex flex-col items-center justify-center bg-[#A6432F] text-[#F3EDE0] overflow-hidden">
+      {/* Elegant Background Design */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-[-20%] left-[-10%] w-[40%] h-[40%] bg-[#A6432F]/5 blur-[100px] rounded-full"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] bg-black/20 blur-[100px] rounded-full"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
+      </div>
+
+      <div className="relative z-10 max-w-[1200px] w-full flex flex-col items-center text-center mt-8">
+        <span className="text-sm font-semibold tracking-widest uppercase text-[#EDE6D8] mb-6">Current Innovation</span>
+        <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight max-w-4xl">
+          Pioneering <span className="font-light italic text-[#EDE6D8]">Cardiac Graft</span> Transportation Systems
+        </h2>
+        <p className="text-lg text-[#EDE6D8] max-w-2xl mb-12 leading-relaxed">
+          Developing continuous perfusion and viability monitoring systems to expand the donor pool and redefine the future of seamless organ transplantation.
+        </p>
+
+        {/* Feature Cards / Diagram Placeholder */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
+          <div className="bg-[#A6432F]/80 backdrop-blur-md rounded-3xl p-8 border border-[#E9C7C2]/30 flex flex-col items-center text-center shadow-2xl">
+            <div className="w-12 h-12 rounded-full bg-[#A6432F] border border-[#E9C7C2]/30 flex items-center justify-center mb-4">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3 className="font-bold mb-2">Continuous Perfusion</h3>
+            <p className="text-sm text-[#EDE6D8]">Preventing warm/cold ischemic insults during transit.</p>
+          </div>
+          <div className="bg-[#A6432F]/80 backdrop-blur-md rounded-3xl p-8 border border-[#E9C7C2]/30 flex flex-col items-center text-center shadow-2xl">
+            <div className="w-12 h-12 rounded-full bg-[#A6432F] border border-[#E9C7C2]/30 flex items-center justify-center mb-4">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 className="font-bold mb-2">Viability Monitoring</h3>
+            <p className="text-sm text-[#EDE6D8]">Real-time tracking of pressures, ECG, and biomarkers.</p>
+          </div>
+          <div className="bg-[#A6432F]/80 backdrop-blur-md rounded-3xl p-8 border border-[#E9C7C2]/30 flex flex-col items-center text-center shadow-2xl">
+            <div className="w-12 h-12 rounded-full bg-[#A6432F] border border-[#E9C7C2]/30 flex items-center justify-center mb-4">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/></svg>
+            </div>
+            <h3 className="font-bold mb-2">Portable MVP</h3>
+            <p className="text-sm text-[#EDE6D8]">Resuscitating and maintaining beating hearts for 4-9 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\research\ResearchOverview.tsx ---
+
+import Image from "next/image";
+import FadeIn from "@/components/ui/FadeIn";
+
+export default function ResearchOverview() {
+  return (
+    <section className="w-full py-32 px-8 bg-[#A6432F] text-[#F3EDE0] flex justify-center relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#A6432F] rounded-full blur-[150px] opacity-20 -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+
+      <div className="max-w-[1200px] w-full flex flex-col items-center text-center relative z-10">
+        <FadeIn>
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-[1px] w-12 bg-[#e8d5d5]"></div>
+            <span className="text-sm font-semibold tracking-widest uppercase text-[#EDE6D8]">Research Overview</span>
+            <div className="h-[1px] w-12 bg-[#e8d5d5]"></div>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.2}>
+          <h3 className="text-3xl md:text-5xl font-light leading-tight mb-12 max-w-[1000px] tracking-tight">
+            A dedicated researcher with <span className="font-semibold text-[#F3EDE0]">8+ years</span> in an institutional lab specializing in cardiovascular, renal, and metabolic diseases.
+          </h3>
+        </FadeIn>
+
+        <FadeIn delay={0.4} className="w-full relative aspect-video max-w-4xl rounded-[2rem] overflow-hidden border border-[#E9C7C2]/30 shadow-lg mb-12">
+          <Image 
+            src="/lab_research_abstract.jpg" 
+            alt="Laboratory Research" 
+            fill 
+            className="object-cover opacity-80 hover:scale-105 transition-transform duration-1000"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#4a0818] via-transparent to-transparent"></div>
+        </FadeIn>
+
+        <FadeIn delay={0.6}>
+          <p className="text-xl text-[#EDE6D8] leading-relaxed max-w-3xl">
+            Currently serving as a Lead Research Scientist in the cardiovascular division of the Healthcare Technology Innovation Centre (HTIC) at IITM Research Park. My work bridges rigorous pre-clinical science with cutting-edge biomedical device development.
+          </p>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+--- C:\Users\thouf\Downloads\PIXIE\Priyanka-main\src\components\ui\FadeIn.tsx ---
+
+"use client";
+
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
+
+interface FadeInProps {
+  children: ReactNode;
+  delay?: number;
+  direction?: "up" | "down" | "left" | "right" | "none";
+  className?: string;
+}
+
+export default function FadeIn({ children, delay = 0, direction = "up", className = "" }: FadeInProps) {
+  const directions = {
+    up: { y: 40, x: 0 },
+    down: { y: -40, x: 0 },
+    left: { x: 40, y: 0 },
+    right: { x: -40, y: 0 },
+    none: { x: 0, y: 0 }
+  };
+
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        ...directions[direction]
+      }}
+      whileInView={{
+        opacity: 1,
+        x: 0,
+        y: 0
+      }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{
+        duration: 0.8,
+        delay: delay,
+        ease: [0.21, 0.47, 0.32, 0.98] // Cinematic ease-out
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
